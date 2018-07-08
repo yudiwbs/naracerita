@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<header>
+    <link rel="stylesheet" href="node_modules/trumbowyg/dist/ui/trumbowyg.min.css">
+</header>
+<html>
+    <style>
+                .post-container {
+                    margin: 20px 20px 0 0;  
+                    overflow: auto
+                }
+                .post-thumb {
+                    float: right
+                }
+                .post-thumb img {
+                    display: block
+                }
+                .post-content {
+                    margin-right: 210px
+                }
+                .post-title {
+                    font-weight: bold;
+                    font-size: 200%;
+                    padding: 9px;
+                
+                }
+    </style>                
+
+<body>
+
+
+
+    <div class="post-container">
+        <h3 class="post-title">Post title</h3>
+        <div class="post-thumb"><img src="img/dongeng.jpg"/></div>
+        <div class="post-content">
+           <!-- Create the editor container -->
+            <div id="my-editor">
+            <p>Hello World!</p>
+            <p>Some initial <strong>bold</strong> text</p>
+            <p><br></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="my-editor">
+            hello world
+    </div> -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+    
+    <script src="node_modules/trumbowyg/dist/trumbowyg.min.js"></script>
+    
+    
+    <script>
+        // Doing this in a loaded JS file is better, I put this here for simplicity
+        $('#my-editor').trumbowyg({
+    btns: [
+        ['undo', 'redo'], // Only supported in Blink browsers
+        ['formatting'],
+        ['strong', 'em', 'del'],
+        ['superscript', 'subscript'],
+        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+        ['unorderedList', 'orderedList'],
+        ['horizontalRule'],
+        ['removeformat']
+    ]
+});
+    </script>
+
+
+</body>
+   
+</html>

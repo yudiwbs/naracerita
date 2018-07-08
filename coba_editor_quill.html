@@ -1,0 +1,55 @@
+<!-- Include stylesheet -->
+<link href="node_modules/quill/dist/quill.snow.css" rel="stylesheet">
+
+<style>
+                .wrap{
+                    width:50%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .gambar {
+                    float: left;
+                    padding: 20px;
+                }
+                .isi {
+                    float: left
+                }
+
+    </style>    
+</style>
+
+<body>
+
+
+<div class="wrap">
+        <div class="gambar"><img src="img/dongeng.jpg"/></div>
+            <!-- Create the editor container -->
+            <div class = "isi" >
+                <div id="editor">
+                    <p>Hello World!</p>
+                    <p>Some initial <strong>bold</strong> text</p>
+                    <p><br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Include the Quill library -->
+<script src="node_modules/quill/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+
+  var options = {
+    debug: 'info',
+    placeholder: 'Compose an epic...',
+    readOnly: false,
+    theme: 'snow',
+    bounds: '.isi'
+  };
+
+  var quill = new Quill('#editor', options);
+</script>
+</body>
