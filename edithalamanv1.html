@@ -76,12 +76,8 @@
                     </div>
                     <div class="col-md-8 ">
                         <div id=content>
-                            <!--  kolom kedua, content -->
+                            <!--  kolom kedua, content image ilustrasi dan teks -->
                             <div class="row ">
-                                <div class="col-md-6 ">
-                                    <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" 
-                                    src="img/dongeng.jpg">
-                                </div> 
                                 <div class="col-md-6 ">
                                     <div id="editor">
                                             <p>Hello World!</p>
@@ -89,15 +85,23 @@
                                             <p><br></p>
                                     </div>
                                 </div>
+                                <div class="col-md-6 ">
+                                    <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" 
+                                    src="img/dongeng.jpg">
+                                </div>
                             </div>   
                         </div>
                     </div>
                     <div class="col-md-2 left_border_solid ">
-                            <img id="layout_img_kiri" class="center resize" src="img/layout.jpg" 
-                            onclick="layoutKiriClick()">
-                            <img id="layout_img_kanan" class="center resize" src="img/layout2.png" 
-                            onclick ="layoutAtasClick()">
-                            <img id="layout_img_atas" class="center resize" src="img/layout.jpg">
+                            <img id="layout_img_kiri" class="center resize" 
+                               src="img/layout_gambar_kiri.png" 
+                               onclick="layoutKiriClick()">
+                            <img id="layout_img_kanan" class="center resize" 
+                               src="img/layout_gambar_atas.png" 
+                               onclick ="layoutAtasClick()">
+                            <img id="layout_img_atas" class="center resize" 
+                                src="img/layout_gambar_kanan.png"
+                                onclick="layoutKananClick()">
                     </div>    
                 </div>    
             </div>            
@@ -128,7 +132,24 @@
     </script>
 
     <!-- Layout ilustrasi dan teks, diset saat icon layout di klik -->
-    <!-- Gambar dikiri -->
+    <!-- Gambar di kanan! -->
+    <script id="layoutImgKanan" type="text/html">
+        <div class="row ">
+            <div class="col-md-6 ">
+                <div id="editor">
+                        <p>Hello World!</p>
+                        <p>Some initial <strong>bold</strong> text</p>
+                        <p><br></p>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" 
+                src="img/dongeng.jpg">
+            </div>
+        </div>
+    </script>
+    
+    <!-- Gambar di kiri -->
     <script id="layoutImgKiri" type="text/html">
         <div class="row ">
             <div class="col-md-6 ">
@@ -174,6 +195,17 @@
             document.getElementById("img_ilustrasi").src = el.src;
             curImgSrc = el.src;    
         }
+        
+        // saat layout diklik
+        // todo: mungkin nanti bisa digabung??
+
+        function layoutKananClick() {
+            // console.log("yw: layout kiri");
+            document.getElementById("content").innerHTML = document.getElementById("layoutImgKanan").innerHTML
+            var quill = new Quill('#editor', options);
+            // console.log("yw curimgsrc="+curImgSrc)
+            document.getElementById("img_ilustrasi").src = curImgSrc;
+        } 
 
         function layoutKiriClick() {
             // console.log("yw: layout kiri");
