@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 left_border_solid ">
-                            <img id="layout_img_kiri" class="center resize" src="img/layout.jpg">
+                            <img id="layout_img_kiri" class="center resize" src="img/layout.jpg" onclick="layoutKiriClick()">
                             <img id="layout_img_kanan" class="center resize" src="img/layout2.png">
                             <img id="layout_img_atas" class="center resize" src="img/layout.jpg">
                     </div>    
@@ -131,6 +131,10 @@
         function imgIlustrasiClick(el) {
             //ganti image sesuai yang diklik
             document.getElementById("img_ilustrasi").src = el.src    
+        }
+
+        function layoutKiriClick() {
+            console.log("yw: layout kiri");
         }
 
 
