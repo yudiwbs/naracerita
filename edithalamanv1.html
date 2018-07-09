@@ -38,6 +38,11 @@
         border-bottom-style: none;
     }
 
+    img.ilustrasi {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
     img.center {
         display: block;
         margin-left: auto;
@@ -74,7 +79,8 @@
                             <!--  kolom kedua, content -->
                             <div class="row ">
                                 <div class="col-md-6 ">
-                                    <img id="img_ilustrasi" class="center padding_ilustrasi" src="img/dongeng.jpg">
+                                    <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" 
+                                    src="img/dongeng.jpg">
                                 </div> 
                                 <div class="col-md-6 ">
                                     <div id="editor">
@@ -121,17 +127,32 @@
                 var quill = new Quill('#editor', options);
     </script>
 
+    <!-- Layout ilustrasi dan teks, diset saat icon layout di klik -->
+    <!-- Gambar dikiri -->
+    <script id="layoutImgKiri" type="text/html">
+        <div class="row ">
+            <div class="col-md-6 ">
+                <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" src="img/dongeng.jpg">
+            </div> 
+            <div class="col-md-6 ">
+                <div id="editor">
+                        <p>Hello World!</p>
+                        <p>Some initial <strong>bold</strong> text</p>
+                        <p><br></p>
+                </div>
+            </div>
+        </div>
+    </script>    
+
+    <!-- Gambar di atas -->
     <script id="layoutImgAtas" type="text/html">
             <!--  kolom kedua, content -->
             <div class="row ">
                 <div class="col-md-12  ">
-                    <img id="img_ilustrasi" class="center padding_ilustrasi" src="img/dongeng.jpg">
+                    <img id="img_ilustrasi" class="center padding_ilustrasi ilustrasi" src="img/dongeng.jpg">
                 </div>
             </div>    
             <div class="row ">
-                <!-- <div class="col-md-6 bordersolid">
-                            <img class="center-block" src="img/dongeng.jpg">
-                </div> -->
                 <div class="col-md-12 ">
                     <div id="editor">
                             <p>Hello World!</p>
@@ -151,18 +172,21 @@
         function imgIlustrasiClick(el) {
             //ganti image sesuai yang diklik
             document.getElementById("img_ilustrasi").src = el.src;
-            curImgScr = el.src;    
+            curImgSrc = el.src;    
         }
 
         function layoutKiriClick() {
-            console.log("yw: layout kiri");
-            document.getElementById("content").innerHTML = "hello"
+            // console.log("yw: layout kiri");
+            document.getElementById("content").innerHTML = document.getElementById("layoutImgKiri").innerHTML
+            var quill = new Quill('#editor', options);
+            // console.log("yw curimgsrc="+curImgSrc)
+            document.getElementById("img_ilustrasi").src = curImgSrc;
         }
 
         function layoutAtasClick() {
             document.getElementById("content").innerHTML = document.getElementById("layoutImgAtas").innerHTML 
             var quill = new Quill('#editor', options);
-            console.log("yw curimgsrc="+curImgSrc)
+            // console.log("yw curimgsrc="+curImgSrc)
             document.getElementById("img_ilustrasi").src = curImgSrc;
         }
 
